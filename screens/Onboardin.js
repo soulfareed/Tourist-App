@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { View, Text } from "react-native";
 
 const Onboarding = () => {
@@ -8,3 +8,5 @@ const Onboarding = () => {
     </View>
   );
 };
+
+export default Onboarding;
