@@ -1,10 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 
 const Home = () => {
+  let navigation = useNavigation();
   return (
     <View>
-      <Text>Home</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.push("Onboarding");
+        }}
+      >
+        <Text>go to onboard screen</Text>
+      </TouchableOpacity>
     </View>
   );
 };
