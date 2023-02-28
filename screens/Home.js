@@ -11,7 +11,7 @@ const Home = () => {
           navigation.push("Onboarding");
         }}
       >
-        <Text>go to onboard screen</Text>
+        <Text>Go To Home Screen</Text>
       </TouchableOpacity>
     </View>
   );
