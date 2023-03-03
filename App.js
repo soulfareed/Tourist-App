@@ -9,6 +9,9 @@ import DestinationDetail from "./screens/DestinationDetail";
 import Onboarding from "./screens/Onboardin";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { TouchableOpacity } from "react-native";
+import { SIZES } from "./constants";
+import { icons } from "./constants";
+import { Image } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +39,7 @@ function App() {
             headerLeft: null,
             headerRight: () => (
               <TouchableOpacity
-                style={{ marginRight: sizes.padding }}
+                style={{ marginRight: SIZES.padding }}
                 onPress={() => console.log("pressed")}
               >
                 <Image
