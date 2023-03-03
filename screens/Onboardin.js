@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import { View, Text } from "react-native";
 import {
   StyleSheet,
@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import { images } from "../constants";
+import { images, SIZES, FONTS, COLORS } from "../constants";
 
 const Onboarding = () => {
   //Render
@@ -26,9 +26,53 @@ const Onboarding = () => {
         />
       </View>
 
-      <View
-        style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-      />
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <View
+          style={{ alignContent: "center", marginHorizontal: SIZES.padding }}
+        >
+          <Text style={{ textAlign: "center", ...FONTS.h2 }}>
+            {" "}
+            Digital Tickets
+          </Text>
+          <Text
+            style={{
+              color: COLORS.gray,
+              marginTop: SIZES.padding,
+              textAlign: "center",
+              ...FONTS.body3,
+            }}
+          >
+            Easy solutions to buy tickets for your travel, bussiness
+            trips,transportation,lodging and culinary
+          </Text>
+        </View>
+        <TouchableOpacity
+          style={{
+            marginTop: SIZES.padding * 2,
+            width: "70%",
+            height: 50,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => console.log("button pressed")}
+        >
+          <LinearGradient
+            style={{
+              height: "100%",
+              width: "100%",
+              borderRadius: 15,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            colors={["#46aeff", "#5884ff"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+          >
+            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Start </Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
+
       <Text>Onboarding</Text>
     </SafeAreaView>
   );
@@ -38,6 +82,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
 });
 export default Onboarding;
