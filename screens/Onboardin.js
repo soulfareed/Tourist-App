@@ -6,7 +6,8 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+// import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { images, SIZES, FONTS, COLORS } from "../constants";
 
