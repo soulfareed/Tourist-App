@@ -9,9 +9,11 @@ import DestinationDetail from "./screens/DestinationDetail";
 import Onboarding from "./screens/Onboardin";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { TouchableOpacity } from "react-native";
-import { SIZES } from "./constants";
-import { icons } from "./constants";
+import { SIZES, icons } from "./constants";
+// import { icons } from "./constants";
 import { Image } from "react-native";
+
+import Tabs from "./navigation/tabs";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +56,7 @@ function App() {
             ),
           }}
         />
+        <Stack.Screen name="Home" component={Tabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );

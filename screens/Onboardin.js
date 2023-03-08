@@ -48,13 +48,16 @@ const Onboarding = () => {
           </Text>
         </View>
         <TouchableOpacity
-          style={{
-            marginTop: SIZES.padding * 2,
-            width: "70%",
-            height: 50,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          style={[
+            styles.shadow,
+            {
+              marginTop: SIZES.padding * 2,
+              width: "70%",
+              height: 50,
+              alignItems: "center",
+              justifyContent: "center",
+            },
+          ]}
           onPress={() => console.log("button pressed")}
         >
           <LinearGradient
@@ -74,7 +77,7 @@ const Onboarding = () => {
         </TouchableOpacity>
       </View>
 
-      <Text>Onboarding</Text>
+      {/* <Text>Onboarding</Text> */}
     </SafeAreaView>
   );
 };
@@ -90,6 +93,9 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });
 export default Onboarding;
