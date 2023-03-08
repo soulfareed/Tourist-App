@@ -30,6 +30,7 @@ SplashScreen.preventAutoHideAsync();
 function App() {
   const [fontsLoaded] = useFonts({
     Roboto: require("./assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
   });
 
   const onLayoutRootView = React.useCallback(async () => {
@@ -37,7 +38,10 @@ function App() {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
-
+  React.useEffect(() => {
+    onLayoutRootView();
+    return () => {};
+  }, [fontsLoaded]);
   if (!fontsLoaded) {
     return null;
   }
