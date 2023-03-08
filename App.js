@@ -9,9 +9,11 @@ import DestinationDetail from "./screens/DestinationDetail";
 import Onboarding from "./screens/Onboardin";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { TouchableOpacity } from "react-native";
-import { SIZES, icons } from "./constants";
-// import { icons } from "./constants";
+import { SIZES } from "./constants";
+import { icons } from "./constants";
 import { Image } from "react-native";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
 import Tabs from "./navigation/tabs";
 
@@ -23,41 +25,25 @@ const theme = {
     border: "transparent",
   },
 };
+SplashScreen.preventAutoHideAsync();
 
 function App() {
+  const [fontsLoaded] = useFonts({
+    Roboto: require("./assets/fonts/Roboto-Regular.ttf"),
+  });
+
+  const onLayoutRootView = React.useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <NavigationContainer theme={theme}>
-      <Stack.Navigator>
-        {/* <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="DestinationDetail" component={DestinationDetail} /> */}
-        <Stack.Screen
-          name="Onboarding"
-          component={Onboarding}
-          options={{
-            title: null,
-            headerStyle: {
-              backgroundColor: Colors.white,
-            },
-            headerLeft: null,
-            headerRight: () => (
-              <TouchableOpacity
-                style={{ marginRight: SIZES.padding }}
-                onPress={() => console.log("pressed")}
-              >
-                <Image
-                  source={icons.barMenu}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                  }}
-                />
-              </TouchableOpacity>
-            ),
-          }}
-        />
-        <Stack.Screen name="Home" component={Tabs} />
-      </Stack.Navigator>
+      <Tabs />
     </NavigationContainer>
   );
 }

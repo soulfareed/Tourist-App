@@ -2,7 +2,10 @@ import React from "react";
 import { Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { Home } from "../screens";
+// import { Home } from "../screens";
+import Home from "../screens/Home";
+import DestinationDetail from "../screens/DestinationDetail";
+import Onboarding from "../screens/Onboardin";
 import { COLORS, icons } from "../constants";
 
 const Tab = createBottomTabNavigator();
@@ -25,18 +28,17 @@ const tabBarOption = () => {
 
 const Tabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
       tabBarOption={tabBarOption}
-      screenOptions=
-      {({ route }) => ({
-        tabBarIcon: ({ focused }) => {
-          const tintColors = focused ? COLORS.white : COLORS.gray;
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          const tintColors = focused ? COLORS.black : COLORS.gray;
 
           switch (route.name) {
             case "Home":
               return (
                 <Image
-                  source={icons.Home}
+                  source={icons.home}
                   resizeMode="contain"
                   style={{
                     tintColor: tintColors,
@@ -45,25 +47,25 @@ const Tabs = () => {
                   }}
                 />
               );
-            case "Search":
+            case "DestinationDetail":
               return (
                 <Image
                   source={icons.search}
                   resizeMode="contain"
                   style={{
-                    tintColor: tintColor,
+                    tintColor: tintColors,
                     height: 25,
                     width: 25,
                   }}
                 />
               );
-            case "Bookmark":
+            case "Onboarding":
               return (
                 <Image
                   source={icons.bookmark}
                   resizeMode="contain"
                   style={{
-                    tintColor: tintColor,
+                    tintColor: tintColors,
                     height: 25,
                     width: 25,
                   }}
@@ -75,7 +77,7 @@ const Tabs = () => {
                   source={icons.user}
                   resizeMode="contain"
                   style={{
-                    tintColor: tintColor,
+                    tintColor: tintColors,
                     height: 25,
                     width: 25,
                   }}
@@ -83,11 +85,14 @@ const Tabs = () => {
               );
           }
         },
+        tabBarActiveTintColor: "tomato",
+        tabBarInactiveTintColor: "gray",
       })}
+    >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Bookmark" component={Search} />
-      <Tab.Screen name="Account" component={Search} />
+      <Tab.Screen name="DestinationDetail" component={DestinationDetail} />
+      <Tab.Screen name="Onboarding" component={Onboarding} />
+      {/* <Tab.Screen name="Account" component={Search} /> */}
     </Tab.Navigator>
   );
 };

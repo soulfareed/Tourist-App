@@ -8,10 +8,10 @@ const Home = () => {
     <View>
       <TouchableOpacity
         onPress={() => {
-          navigation.push("Onboarding");
+          navigation.navigate("Onboarding");
         }}
       >
-        <Text>Go To Home Screen</Text>
+        <Text>Go To onboarding scrren</Text>
       </TouchableOpacity>
     </View>
   );
