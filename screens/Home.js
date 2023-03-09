@@ -11,7 +11,7 @@ const Home = () => {
           navigation.navigate("Onboarding");
         }}
       >
-        <Text>Go To onboarding scrren</Text>
+        <Text>Go to Home page </Text>
       </TouchableOpacity>
     </View>
   );
