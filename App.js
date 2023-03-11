@@ -9,7 +9,7 @@ import DestinationDetail from "./screens/DestinationDetail";
 import Onboarding from "./screens/Onboardin";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { TouchableOpacity } from "react-native";
-import { SIZES } from "./constants";
+import { COLORS, SIZES } from "./constants";
 import { icons } from "./constants";
 import { Image } from "react-native";
 import { useFonts } from "expo-font";
@@ -48,6 +48,31 @@ function App() {
   return (
     <NavigationContainer theme={theme}>
       <Tabs />
+      <Stack.Screen
+        name="Home"
+        component={Tabs}
+        options={{
+          title: null,
+          headerStyle: {
+            backgroundColor: COLORS.white,
+          },
+          headerLeft: ({ onPress }) => (
+            <TouchableOpacity
+              style={{ marginLeft: SIZES.padding }}
+              onPress={onPress}
+            >
+              <Image
+                source={icons.back}
+                resizeMode="contain"
+                style={{
+                  width: 25,
+                  height: 25,
+                }}
+              />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </NavigationContainer>
   );
 }

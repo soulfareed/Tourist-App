@@ -6,13 +6,13 @@ const Home = () => {
   let navigation = useNavigation();
   return (
     <View>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => {
           navigation.navigate("Onboarding");
         }}
       >
         <Text>Go to Home page </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

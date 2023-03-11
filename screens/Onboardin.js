@@ -10,10 +10,11 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { images, SIZES, FONTS, COLORS } from "../constants";
+import { useNavigation } from "@react-navigation/native";
 
 const Onboarding = () => {
   //Render
-
+  let navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -58,7 +59,7 @@ const Onboarding = () => {
               justifyContent: "center",
             },
           ]}
-          onPress={() => console.log("button pressed")}
+          onPress={() => navigation.navigate("Home")}
         >
           <LinearGradient
             style={{
