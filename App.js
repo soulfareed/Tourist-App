@@ -56,6 +56,15 @@ function App() {
           headerStyle: {
             backgroundColor: COLORS.white,
           },
+          headerLeft: ({ onPress }) => (
+            <TouchableOpacity
+              style={{ marginLeft: SIZES.padding }}
+              onPress={onPress}
+            >
+              <Image
+                source={icons.back}
+                resizeMode="contain"
+                style={{
                   width: 25,
                   height: 25,
                 }}
