@@ -14,7 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const Onboarding = () => {
   //Render
-  let navigation = useNavigation();
+  let navigation = useNavigation ();
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
