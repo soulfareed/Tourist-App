@@ -47,7 +47,7 @@ function App() {
   }
   return (
     <NavigationContainer theme={theme}>
-      <Tabs />
+      <Tabs name="Home" component={Home} />
       <Stack.Screen
         name="Onboarding"
         component={Onboarding}
@@ -57,7 +57,7 @@ function App() {
             backgroundColor: COLORS.white,
           },
           headerLeft: null,
-          headerRight: ({ onPress }) => (
+          headerRight: () => (
             <TouchableOpacity
               style={{ marginRight: SIZES.padding }}
               onPress={() => console.log("Pressed")}
