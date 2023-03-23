@@ -49,20 +49,21 @@ function App() {
     <NavigationContainer theme={theme}>
       <Tabs />
       <Stack.Screen
-        name="Home"
-        component={Tabs}
+        name="Onboarding"
+        component={Onboarding}
         options={{
           title: null,
           headerStyle: {
             backgroundColor: COLORS.white,
           },
-          headerLeft: ({ onPress }) => (
+          headerLeft: null,
+          headerRight: ({ onPress }) => (
             <TouchableOpacity
-              style={{ marginLeft: SIZES.padding }}
-              onPress={onPress}
+              style={{ marginRight: SIZES.padding }}
+              onPress={() => console.log("Pressed")}
             >
               <Image
-                source={icons.back}
+                source={icons.barMenu}
                 resizeMode="contain"
                 style={{
                   width: 25,
